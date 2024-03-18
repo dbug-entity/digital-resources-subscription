@@ -1,33 +1,29 @@
-<!-- Confirmation.vue -->
+// ConfirmationPage.vue
 <template>
   <div>
-    <h2>Step 3: Confirmation</h2>
+    <h2 class="text-2xl font-semibold mb-4">Step 3: Confirmation</h2>
     <p>Name: {{ formData.name }}</p>
     <p>Email: {{ formData.email }}</p>
     <p>Username: {{ formData.username }}</p>
     <p>Password: ********</p>
-    <button @click.prevent="previousStep">Previous</button>
-    <button @click.prevent="submitForm">Confirm</button>
+    <button @click.prevent="previousStep" class="btn">Previous</button>
+    <button @click.prevent="submitForm" class="btn">Confirm</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
+import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
-    const formData = ref({
-      name: "",
-      email: "",
-      username: "",
-      password: "",
-    });
-
+    const store = useStore();
     const router = useRouter();
+    const formData = store.state.formData;
 
     const previousStep = () => {
-      router.push("/account-information");
+      router.go(-1); // Go back one step
     };
 
     const submitForm = () => {
@@ -39,3 +35,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+</style>

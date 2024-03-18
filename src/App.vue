@@ -1,6 +1,8 @@
-// App.vue
+<!-- App.vue -->
 <template>
-  <router-view />
+  <div class="container mx-auto">
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">
@@ -10,3 +12,9 @@ export default defineComponent({
   name: "App",
 });
 </script>
+
+<style lang="css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</style>
