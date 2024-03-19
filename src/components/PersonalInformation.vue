@@ -47,32 +47,6 @@
       </form>
     </div>
   </div>
-  <!-- <div>
-    <h2 class="text-2xl font-semibold mb-4">Step 1: Personal Information</h2>
-    <form @submit.prevent="nextStep">
-      <div class="mb-4">
-        <label for="name" class="block">Name:</label>
-        <input
-          id="name"
-          type="text"
-          v-model="formData.name"
-          required
-          class="input"
-        />
-      </div>
-      <div class="mb-4">
-        <label for="email" class="block">Email:</label>
-        <input
-          id="email"
-          type="email"
-          v-model="formData.email"
-          required
-          class="input"
-        />
-      </div>
-      <button type="submit" class="btn">Next</button>
-    </form>
-  </div> -->
 </template>
 
 <script lang="ts">
@@ -88,7 +62,7 @@ export default defineComponent({
 
     const nextStep = () => {
       store.commit("updateFormData", formData.value);
-      router.push("/account-information");
+      router.push("/subscription");
     };
 
     return { formData, nextStep };
