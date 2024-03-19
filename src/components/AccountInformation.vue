@@ -45,13 +45,26 @@
               />
             </div>
           </div>
-          <button
-            type="submit"
-            class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-          >
-            Submit Payment
-          </button>
         </form>
+      </div>
+      <!-- Previous and Next Buttons -->
+      <div class="mt-10 flex justify-start">
+        <div class="mr-4">
+          <button
+            @click="previousStep"
+            class="btn-grey w-full bg-gray-400 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-500 focus:outline-none focus:bg-gray-500"
+          >
+            Previous
+          </button>
+        </div>
+        <div>
+          <button
+            @click="nextStep"
+            class="btn w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   </div>

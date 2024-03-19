@@ -52,6 +52,16 @@
           Confirm
         </button>
       </div>
+      <div class="mt-10 flex justify-start">
+        <div class="mr-4">
+          <button
+            @click="previousStep"
+            class="btn-grey w-full bg-gray-400 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-500 focus:outline-none focus:bg-gray-500"
+          >
+            Previous
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>

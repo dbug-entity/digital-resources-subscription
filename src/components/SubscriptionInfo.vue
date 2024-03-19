@@ -6,8 +6,15 @@
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Subscription Plan Cards -->
         <!-- Basic Plan -->
-        <div class="bg-white rounded-lg shadow-md p-6">
+        <div
+          :class="{
+            'border-blue-500 border-4': formData.subscriptionPlan === 'Basic',
+          }"
+          @click="selectPlan('Basic')"
+          class="cursor-pointer bg-white rounded-lg shadow-md p-6"
+        >
           <h3 class="text-lg font-semibold text-center mb-4">Basic</h3>
           <ul class="text-sm mb-4">
             <li>Access to basic features</li>
@@ -16,7 +23,7 @@
           </ul>
           <p class="text-lg font-bold text-center mb-4">$9.99/month</p>
           <button
-            @click="selectPlan('Basic')"
+            @click.stop="selectPlan('Basic')"
             class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
           >
             Select
@@ -24,7 +31,14 @@
         </div>
 
         <!-- Standard Plan -->
-        <div class="bg-white rounded-lg shadow-md p-6">
+        <div
+          :class="{
+            'border-blue-500 border-4':
+              formData.subscriptionPlan === 'Standard',
+          }"
+          @click="selectPlan('Standard')"
+          class="cursor-pointer bg-white rounded-lg shadow-md p-6"
+        >
           <h3 class="text-lg font-semibold text-center mb-4">Standard</h3>
           <ul class="text-sm mb-4">
             <li>Access to standard features</li>
@@ -33,7 +47,7 @@
           </ul>
           <p class="text-lg font-bold text-center mb-4">$19.99/month</p>
           <button
-            @click="selectPlan('Standard')"
+            @click.stop="selectPlan('Standard')"
             class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
           >
             Select
@@ -41,7 +55,13 @@
         </div>
 
         <!-- Premium Plan -->
-        <div class="bg-white rounded-lg shadow-md p-6">
+        <div
+          :class="{
+            'border-blue-500 border-4': formData.subscriptionPlan === 'Premium',
+          }"
+          @click="selectPlan('Premium')"
+          class="cursor-pointer bg-white rounded-lg shadow-md p-6"
+        >
           <h3 class="text-lg font-semibold text-center mb-4">Premium</h3>
           <ul class="text-sm mb-4">
             <li>Access to premium features</li>
@@ -50,10 +70,30 @@
           </ul>
           <p class="text-lg font-bold text-center mb-4">$29.99/month</p>
           <button
-            @click="selectPlan('Premium')"
+            @click.stop="selectPlan('Premium')"
             class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
           >
             Select
+          </button>
+        </div>
+      </div>
+
+      <!-- Previous and Next Buttons -->
+      <div class="mt-10 flex justify-start">
+        <div class="mr-4">
+          <button
+            @click="previousPage"
+            class="btn-grey w-full bg-gray-400 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-500 focus:outline-none focus:bg-gray-500"
+          >
+            Previous
+          </button>
+        </div>
+        <div>
+          <button
+            @click="nextPage"
+            class="btn w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
+            Next
           </button>
         </div>
       </div>
@@ -72,17 +112,20 @@ export default defineComponent({
     const router = useRouter();
     const formData = ref(store.state.formData);
 
-    const previousStep = () => {
+    const previousPage = () => {
       router.go(-1); // Go back one step
     };
 
     const selectPlan = (plan: string) => {
       formData.value.subscriptionPlan = plan;
       store.commit("updateFormData", formData.value);
+    };
+
+    const nextPage = () => {
       router.push("/account-information");
     };
 
-    return { formData, previousStep, selectPlan };
+    return { formData, previousPage, nextPage, selectPlan };
   },
 });
 </script>
