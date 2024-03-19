@@ -4,7 +4,7 @@ import { createStore } from "vuex";
 interface FormData {
   name: string;
   email: string;
-  username: string;
+  phoneNumber: string;
   password: string;
 }
 
@@ -17,7 +17,7 @@ export default createStore<State>({
     formData: {
       name: "",
       email: "",
-      username: "",
+      phoneNumber: "",
       password: "",
     },
   },
