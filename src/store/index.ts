@@ -7,6 +7,9 @@ interface FormData {
   phoneNumber: string;
   password: string;
   subscriptionPlan: string;
+  cardNumber: string;
+  expiryDate: string;
+  cvv: string;
 }
 
 interface State {
@@ -21,6 +24,9 @@ export default createStore<State>({
       phoneNumber: "",
       password: "",
       subscriptionPlan: "",
+      cardNumber: "",
+      expiryDate: "",
+      cvv: "",
     },
   },
   mutations: {

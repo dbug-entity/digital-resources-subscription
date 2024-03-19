@@ -1,31 +1,59 @@
 // AccountInformation.vue
 <template>
-  <div>
-    <h2 class="text-2xl font-semibold mb-4">Step 2: Account Information</h2>
-    <form @submit.prevent="nextStep">
-      <div class="mb-4">
-        <label for="username" class="block">Username:</label>
-        <input
-          id="username"
-          type="text"
-          v-model="formData.username"
-          required
-          class="input"
-        />
+  <div class="bg-blue-900 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4 py-8">
+      <h2 class="text-3xl font-bold text-center text-black mb-8">
+        Payment Information
+      </h2>
+
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-4">Payment Details</h3>
+        <form @submit.prevent="nextStep">
+          <div class="mb-4">
+            <label for="cardNumber" class="block font-medium mb-1"
+              >Card Number:</label
+            >
+            <input
+              type="text"
+              id="cardNumber"
+              v-model="formData.cardNumber"
+              required
+              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-white"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <label for="expiryDate" class="block font-medium mb-1"
+                >Expiry Date:</label
+              >
+              <input
+                type="text"
+                id="expiryDate"
+                v-model="formData.expiryDate"
+                required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-white"
+              />
+            </div>
+            <div>
+              <label for="cvv" class="block font-medium mb-1">CVV:</label>
+              <input
+                type="text"
+                id="cvv"
+                v-model="formData.cvv"
+                required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-white"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
+            Submit Payment
+          </button>
+        </form>
       </div>
-      <div class="mb-4">
-        <label for="password" class="block">Password:</label>
-        <input
-          id="password"
-          type="password"
-          v-model="formData.password"
-          required
-          class="input"
-        />
-      </div>
-      <button @click.prevent="previousStep" class="btn">Previous</button>
-      <button type="submit" class="btn">Next</button>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -55,7 +83,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+.container {
+  max-width: 600px;
+}
+
+.text-black {
+  color: #fff;
+}
+
+.bg-blue-900 {
+  background-color: #284276;
+}
 </style>
