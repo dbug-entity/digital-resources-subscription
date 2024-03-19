@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
@@ -67,16 +67,19 @@ export default defineComponent({
     const router = useRouter();
     const formData = store.state.formData;
 
+    // Define termsAccepted as a reactive variable
+    const termsAccepted = ref(false);
+
     const previousStep = () => {
       router.go(-1); // Go back one step
     };
 
-    const submitForm = () => {
+    const confirm = () => {
       // Perform form submission logic
-      console.log("Form submitted!");
+      router.push("/completion");
     };
 
-    return { formData, previousStep, submitForm };
+    return { formData, previousStep, confirm, termsAccepted };
   },
 });
 </script>
