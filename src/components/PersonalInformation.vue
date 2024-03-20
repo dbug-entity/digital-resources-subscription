@@ -10,8 +10,8 @@
 
     <!-- Personal Information form -->
     <div
-      class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto flex flex-col md:flex-row md:items-center"
-    >
+      class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-4 md:mx-auto flex flex-col md:flex-row md:items-center"
+    > <!-- Adjusted padding -->
       <!-- Image -->
       <img
         :src="imagePath"
@@ -20,7 +20,7 @@
       />
 
       <!-- Form -->
-      <div class="w-full px-4 md:w-1/2 md:px-8">
+      <div class="w-full px-4 md:w-1/2 md:px-8 py-4 md:py-0">
         <h2 class="text-2xl font-semibold mb-6 text-center">
           Add Personal Information
         </h2>
@@ -49,7 +49,7 @@
           </div>
           <!-- Password input -->
           <div class="mb-4">
-            <label for="phoneNumber" class="block font-medium mb-1">
+            <label for="password" class="block font-medium mb-1">
               Password:
             </label>
             <input
