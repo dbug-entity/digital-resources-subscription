@@ -1,6 +1,11 @@
-// PersonalInformation.vue
 <template>
-  <div class="bg-blue-900 min-h-screen flex items-center justify-center">
+  <div
+    class="bg-blue-900 min-h-screen flex flex-col items-center justify-center"
+  >
+    <div class="top-text text-white text-3xl text-center font-bold pb-8 mb-8">
+      Online subscription for digital resource library
+    </div>
+
     <div
       class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto flex flex-col md:flex-row md:items-center"
     >
@@ -36,9 +41,9 @@
             />
           </div>
           <div class="mb-4">
-            <label for="phoneNumber" class="block font-medium mb-1"
-              >Password:</label
-            >
+            <label for="phoneNumber" class="block font-medium mb-1">
+              Password:
+            </label>
             <input
               type="tel"
               id="phoneNumber"
@@ -83,5 +88,12 @@ export default defineComponent({
 <style scoped>
 .bg-blue-900 {
   background-color: #284276;
+  display: flex; /* Makes the container a flex container */
+  flex-direction: column;
+}
+
+.top-text {
+  /* Added styles for top text */
+  padding: 1rem;
 }
 </style>

@@ -10,7 +10,7 @@
         <!-- Basic Plan -->
         <div
           :class="{
-            'border-blue-500 border-4': formData.subscriptionPlan === 'Basic',
+            'border-green-500 border-4': formData.subscriptionPlan === 'Basic',
           }"
           @click="selectPlan('Basic')"
           class="cursor-pointer bg-white rounded-lg shadow-md p-6"
@@ -33,7 +33,7 @@
         <!-- Standard Plan -->
         <div
           :class="{
-            'border-blue-500 border-4':
+            'border-green-500 border-4':
               formData.subscriptionPlan === 'Standard',
           }"
           @click="selectPlan('Standard')"
@@ -57,7 +57,8 @@
         <!-- Premium Plan -->
         <div
           :class="{
-            'border-blue-500 border-4': formData.subscriptionPlan === 'Premium',
+            'border-green-500 border-4':
+              formData.subscriptionPlan === 'Premium',
           }"
           @click="selectPlan('Premium')"
           class="cursor-pointer bg-white rounded-lg shadow-md p-6"
