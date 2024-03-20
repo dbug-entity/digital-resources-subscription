@@ -1,12 +1,17 @@
 <template>
+  <!-- Main container -->
   <div class="bg-blue-900 min-h-screen flex items-center justify-center">
+    <!-- Content container -->
     <div class="container mx-auto px-4 py-8">
+      <!-- Title -->
       <h2 class="text-3xl font-bold text-center text-black mb-8">
         Confirmation
       </h2>
 
+      <!-- Summary section -->
       <div class="bg-white p-6 rounded-lg shadow-md">
         <h3 class="text-lg font-semibold mb-4">Summary</h3>
+        <!-- User information -->
         <div class="mb-4">
           <p><span class="font-semibold">Name:</span> {{ formData.name }}</p>
           <p><span class="font-semibold">Email:</span> {{ formData.email }}</p>
@@ -14,12 +19,14 @@
             <span class="font-semibold">Password:</span> {{ formData.password }}
           </p>
         </div>
+        <!-- Selected subscription plan -->
         <div class="mb-4">
           <p>
             <span class="font-semibold">Selected Plan:</span>
             {{ formData.subscriptionPlan }}
           </p>
         </div>
+        <!-- Payment details -->
         <div class="mb-4">
           <p><span class="font-semibold">Payment Details</span></p>
           <p>
@@ -32,6 +39,7 @@
           </p>
           <p><span class="font-semibold">CVV:</span> {{ formData.cvv }}</p>
         </div>
+        <!-- Terms and conditions acceptance -->
         <div class="mb-4">
           <input
             type="checkbox"
@@ -39,11 +47,12 @@
             v-model="termsAccepted"
             class="mr-2"
           />
-          <label for="terms" class="text-sm"
-            >I accept the
-            <a href="#" class="underline">terms and conditions</a>.</label
-          >
+          <label for="terms" class="text-sm">
+            I accept the
+            <a href="#" class="underline">terms and conditions</a>.
+          </label>
         </div>
+        <!-- Confirm button -->
         <button
           @click="confirm"
           :disabled="!termsAccepted"
@@ -52,6 +61,8 @@
           Confirm
         </button>
       </div>
+
+      <!-- Previous button -->
       <div class="mt-10 flex justify-start">
         <div class="mr-4">
           <button
@@ -73,17 +84,19 @@ import { useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
+    // Vuex store and router
     const store = useStore();
     const router = useRouter();
+    // Form data and terms acceptance
     const formData = store.state.formData;
-
-    // Define termsAccepted as a reactive variable
     const termsAccepted = ref(false);
 
+    // Function to navigate to the previous step/page
     const previousStep = () => {
       router.go(-1); // Go back one step
     };
 
+    // Function to confirm the submission
     const confirm = () => {
       // Perform form submission logic
       router.push("/completion");
@@ -95,15 +108,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
+/* Scoped styles */
 .container {
-  max-width: 600px;
+  max-width: 600px; /* Set maximum width */
 }
 
 .text-black {
-  color: #fff;
+  color: #fff; /* Text color */
 }
 
 .bg-blue-900 {
-  background-color: #284276;
+  background-color: #284276; /* Background color */
 }
 </style>

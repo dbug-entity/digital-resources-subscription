@@ -1,12 +1,15 @@
 <template>
+  <!-- Main container -->
   <div class="bg-blue-900 min-h-screen flex items-center justify-center">
+    <!-- Content container -->
     <div class="container mx-auto px-4 py-8">
+      <!-- Title -->
       <h2 class="text-3xl font-bold text-center text-black mb-8">
         Subscription Plan Selection
       </h2>
 
+      <!-- Subscription plan cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Subscription Plan Cards -->
         <!-- Basic Plan -->
         <div
           :class="{
@@ -81,6 +84,7 @@
 
       <!-- Previous and Next Buttons -->
       <div class="mt-10 flex justify-start">
+        <!-- Previous Button -->
         <div class="mr-4">
           <button
             @click="previousPage"
@@ -89,6 +93,7 @@
             Previous
           </button>
         </div>
+        <!-- Next Button -->
         <div>
           <button
             @click="nextPage"
@@ -109,19 +114,24 @@ import { useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
+    // Vuex store and router
     const store = useStore();
     const router = useRouter();
+    // Form data
     const formData = ref(store.state.formData);
 
+    // Function to navigate to previous page
     const previousPage = () => {
       router.go(-1); // Go back one step
     };
 
+    // Function to select subscription plan
     const selectPlan = (plan: string) => {
       formData.value.subscriptionPlan = plan;
       store.commit("updateFormData", formData.value);
     };
 
+    // Function to navigate to next page
     const nextPage = () => {
       router.push("/account-information");
     };
@@ -132,15 +142,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
+/* Scoped styles */
 .container {
   max-width: 1200px;
 }
 
 .text-black {
-  color: #fff;
+  color: #fff; /* Text color */
 }
 
 .bg-blue-900 {
-  background-color: #284276;
+  background-color: #284276; /* Background color */
 }
 </style>
