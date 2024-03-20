@@ -1,4 +1,6 @@
-# my-concert-form
+# Digital resources subscription form - Take home for Arqu
+
+## Link for deployed Netlify app: https://digital-resources-subscription.netlify.app/
 
 ## Project setup
 ```
