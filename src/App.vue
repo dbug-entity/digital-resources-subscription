@@ -17,4 +17,8 @@ export default defineComponent({
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#app {
+  background-color: #284276;
+}
 </style>
