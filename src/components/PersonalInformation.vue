@@ -10,7 +10,7 @@
 
     <!-- Personal Information form -->
     <div
-      class="bg-blue-900 p-8 rounded-lg shadow-lg max-w-3xl mx-auto flex flex-col md:flex-row md:items-center"
+      class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto flex flex-col md:flex-row md:items-center"
     >
       <!-- Image -->
       <img
