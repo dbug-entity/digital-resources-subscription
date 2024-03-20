@@ -53,8 +53,8 @@
               Password:
             </label>
             <input
-              type="tel"
-              id="phoneNumber"
+              type="password"
+              id="password"
               v-model="formData.password"
               required
               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-white"
