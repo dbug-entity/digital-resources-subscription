@@ -1,17 +1,12 @@
-<!-- App.vue -->
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+</script>
+
 <template>
   <div class="container mx-auto">
-    <router-view />
+    <RouterView />
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "App",
-});
-</script>
 
 <style lang="css">
 @tailwind base;

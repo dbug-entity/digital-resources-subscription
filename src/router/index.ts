@@ -1,22 +1,20 @@
-// router.ts
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import PersonalInformation from "../components/PersonalInformation.vue";
-import AccountInformation from "../components/AccountInformation.vue";
-import Confirmation from "../components/ConfirmationPage.vue";
-import SubscriptionInfo from "../components/SubscriptionInfo.vue";
-import CompletionPage from "../components/CompletionPage.vue";
+import { createRouter, createWebHistory } from 'vue-router';
 
-const routes: Array<RouteRecordRaw> = [
-  { path: "/", component: PersonalInformation },
-  { path: "/subscription", component: SubscriptionInfo },
-  { path: "/account-information", component: AccountInformation },
-  { path: "/confirmation", component: Confirmation },
-  { path: "/completion", component: CompletionPage },
-];
+import PersonalInformation from '@/pages/PersonalInformation.vue';
+import AccountInformation from '@/pages/AccountInformation.vue';
+import Confirmation from '@/pages/ConfirmationPage.vue';
+import SubscriptionInfo from '@/pages/SubscriptionInfo.vue';
+import CompletionPage from '@/pages/CompletionPage.vue';
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    { path: "/", name: "home", component: PersonalInformation },
+    { path: "/subscription", name: "subscription", component: SubscriptionInfo },
+    { path: "/account-information", name: "account-information", component: AccountInformation },
+    { path: "/confirmation", name: "confirmation", component: Confirmation },
+    { path: "/completion", name: "completion", component: CompletionPage },
+  ]
+})
 
-export default router;
+export default router

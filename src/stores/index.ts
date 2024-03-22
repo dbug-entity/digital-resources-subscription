@@ -1,5 +1,5 @@
 // store/index.ts
-import { createStore } from "vuex";
+import { defineStore } from "pinia";
 
 interface FormData {
   name: string;
@@ -12,12 +12,8 @@ interface FormData {
   cvv: string;
 }
 
-interface State {
-  formData: FormData;
-}
-
-export default createStore<State>({
-  state: {
+const useFormDataStore = defineStore('formData', {
+  state: (): {formData: FormData} => ({
     formData: {
       name: "",
       email: "",
@@ -28,12 +24,14 @@ export default createStore<State>({
       expiryDate: "",
       cvv: "",
     },
-  },
-  mutations: {
-    updateFormData(state, payload) {
-      state.formData = { ...state.formData, ...payload };
+  }),
+  actions: {
+    updateFormData(payload: Partial<FormData>) {
+      this.formData = { ...this.formData, ...payload };
     },
   },
-  actions: {},
-  modules: {},
 });
+
+export default useFormDataStore;
+
+

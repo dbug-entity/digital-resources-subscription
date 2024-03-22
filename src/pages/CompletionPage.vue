@@ -12,40 +12,22 @@
           Please check your email for further instructions on how to access your
           subscription or any next steps.
         </p>
-        <button
-          @click="redirectToHome"
-          class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-        >
-          Back to Home
-        </button>
+        <Button label="Back to Home" backgroundColor="bg-blue-500" :onClick="redirectToHome" />
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { useStore } from "vuex";
+<script setup lang="ts">
 import { useRouter } from "vue-router";
+import Button from "@/components/CustomeButton.vue"
 
-export default defineComponent({
-  setup() {
-    const store = useStore();
-    const router = useRouter();
-    const formData = store.state.formData;
+const router = useRouter();
 
-    const previousStep = () => {
-      router.go(-1); // Go back one step
-    };
-
-    const redirectToHome = () => {
-      // Perform form submission logic
-      router.push("/");
-    };
-
-    return { formData, previousStep, redirectToHome };
-  },
-});
+const redirectToHome = () => {
+  // Perform form submission logic
+  router.push("/");
+};
 </script>
 
 <style scoped>
